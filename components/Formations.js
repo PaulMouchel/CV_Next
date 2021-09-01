@@ -5,12 +5,12 @@ const formations = [
     {
         date:"2019 à 2021",
         title:"Auto-formation aux technologies du web",
-        description:"Via Youtube, Udemy, blogs"
+        description:" Via Youtube, Udemy, blogs"
     },
     {
         date:"2019",
         title:"The Hacking Project",
-        description:"Bootcamp en peer-learning : formation intensive au développement web, aux programmes HTML, CSS, JS, Git & Github, SQL, Ruby on Rails",
+        description:" Bootcamp en peer-learning : formation intensive au développement web, aux programmes HTML, CSS, JS, Git & Github, SQL, Ruby on Rails",
         link: "thehackingproject.org"
     },
     {
@@ -26,7 +26,7 @@ const formations = [
     {
         date:"2008",
         title:"Baccalauréat scientifique",
-        description:"option SVT - mention Assez bien"
+        description:" option SVT - mention Assez bien"
     }
 ]
 

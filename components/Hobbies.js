@@ -14,9 +14,9 @@ const hobbies = [
 
 const Hobbies = () => {
     return (
-        <section >
+        <section>
             <SectionTitle>HOBBIES</SectionTitle>
-            <div className="">
+            <div className="px-6">
                 {hobbies.map((hobbie, index) =>  
                 <div key={index} className="inline m-2">
                     <Image
