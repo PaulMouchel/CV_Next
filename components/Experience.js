@@ -1,10 +1,12 @@
 const Experience = ({name, place, date, description}) => {
     return (
-        <div className="">
-            <span className="font-bold text-orange">{name}</span>
-            <span>{place}</span>
-            <span>{date}</span>
-            <span>{description}</span>
+        <div className="my-2">
+            <div className="font-bold text-orange">{name}</div>
+            <div className="font-bold text-orange">{place}</div>
+            <div>{date}</div>
+            {description.map((item, index) =>
+                <div key={index}>{item}</div>
+            )}
         </div>
     )
 }

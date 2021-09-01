@@ -1,4 +1,14 @@
+@import url('http://fonts.cdnfonts.com/css/din-alternate');
+
 header {
     background-image: linear-gradient(to bottom right, #F4C82D 50%, white 50%);
   }
-  
+
+  html{
+    font-family: 'Arial', sans-serif;
+  } 
+
+   h1, h3, h4 {
+    font-family: 'DIN Alternate', sans-serif;
+    font-weight: bold;
+  } 
