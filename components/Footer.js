@@ -1,12 +1,15 @@
 const Footer = () => {
     return (
-        <footer className="w-full flex h-4">
-            <div className="bg-darkGreen w-1/5 h-full"/>
-            <div className="bg-green w-1/5 h-full"/>
-            <div className="bg-yellow w-1/5 h-full"/>
-            <div className="bg-orange w-1/5 h-full"/>
-            <div className="bg-red w-1/5 h-full"/>
-        </footer>
+        <footer className="flex items-center justify-center w-full h-24 border-t">
+            <a
+            className="flex items-center justify-center"
+            href="https://github.com/PaulMouchel"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+            Créé par Paul Mouchel
+            </a>
+      </footer>
     )
 }
 

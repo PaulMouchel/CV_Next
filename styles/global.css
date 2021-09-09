@@ -12,3 +12,7 @@ header {
     font-family: 'DIN Alternate', sans-serif;
     font-weight: bold;
   } 
+
+  .pic-shape {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ;
+  }

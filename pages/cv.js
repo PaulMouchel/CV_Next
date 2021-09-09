@@ -1,6 +1,6 @@
-import Header from '../components/Header'
-import Body from '../components/Body'
-import Footer from '../components/Footer'
+import Header from '../components/CV/Header'
+import Body from '../components/CV/Body'
+import Footer from '../components/CV/Footer'
 
 const cv = () => {
     return (
