@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
 
       {/* <Navbar activeTab={"home"}/> */}
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+      <main className="flex flex-col items-center justify-center w-full px-4 text-center">
         
         <Hero/>
         <WorkHistory/>

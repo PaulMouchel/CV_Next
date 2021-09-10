@@ -7,16 +7,16 @@ import { motion } from 'framer-motion'
 
 const Hero = () => {
     return (
-        <Section className="gap-12">
+        <Section className="gap-4 md:gap-12 flex-col-reverse md:flex-row pb-12 md:pb-0 pt-4 md:pt-0">
             <div className="max-w-2xl text-left">
                 <Title>Salut ! Moi c'est Paul.</Title>
                 <P>Bienvenue sur mon porfolio! Je suis développeur Full Stack freelance et je vis sur l'île de la réunion.</P>
             </div>
-            <div>
+            <div className="h-48 md:h-96 w-48 md:w-96">
                 <Image
                     src="/images/me.jpg" 
-                    height={400} 
-                    width={400} 
+                    height={384} 
+                    width={384} 
                     alt="Ma photo"
                     className="pic-shape"
                 />

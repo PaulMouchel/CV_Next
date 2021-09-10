@@ -9,7 +9,8 @@ const TextField = (props) => {
         text-gray-100 
         resize-none 
         block 
-        h-64  
+        h-48
+        md:h-64  
         w-full
         border-2 
         border-orange 

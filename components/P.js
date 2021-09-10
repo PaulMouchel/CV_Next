@@ -1,6 +1,6 @@
 const P = ({className, children}) => {
     return (
-        <p className={`text-gray-100 text-xl ${className}`}>{children}</p>
+        <p className={`text-gray-100 text-lg md:text-xl ${className}`}>{children}</p>
     )
 }
 
