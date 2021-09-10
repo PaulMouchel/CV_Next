@@ -5,17 +5,16 @@ import WorkHistory from '../components/WorkHistory'
 import Stack from '../components/Stack'
 import About from '../components/About'
 import Contact from '../components/Contact'
-import Footer from '../components/Footer'
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center min-h-screen bg-gray-900">
+    <div className="flex flex-col justify-center bg-gray-900">
       <Head>
         <title>Paul Mouchel</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar activeTab={"home"}/>
+      {/* <Navbar activeTab={"home"}/> */}
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         
         <Hero/>
@@ -24,7 +23,6 @@ export default function Home() {
         <About/>
         <Contact/>
       </main>
-      <Footer/>
     </div>
   )
 }

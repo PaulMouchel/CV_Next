@@ -2,13 +2,18 @@ import Section from "./Section";
 import Title from "./Title";
 import P from './P'
 import Button from "./Button";
+import Link from "next/link";
 
 const About = () => {
     return (
         <Section className="flex-col" id="about">
             <Title>A propos de moi</Title>
-            <P>Here you can find out more about me, my hobbies and personal project I'm currently working on.</P>
-            <Button>Envie d'en savoir plus ?</Button>
+            <P className="max-w-lg">Si vous voulez en savoir un peu plus sur qui je suis, mes centres d'interets, mes hobbies.</P>
+            <Button>
+                <Link href="/about">
+                    <a>Envie d'en savoir plus ?</a>
+                </Link>
+            </Button>
         </Section>
     )
 }
