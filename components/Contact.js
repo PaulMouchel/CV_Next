@@ -20,6 +20,7 @@ const Contact = () => {
                     <Button className="self-end" type="submit" value="Send">
                     Envoyer
                     </Button>
+                    <P>En construction : pour me contacter, envoyer un mail à paulmouchel@live.fr</P>
                 </form>
             </div>
         </Section>

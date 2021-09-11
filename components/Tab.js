@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-const Tab = ({children, path}) => {
+const Tab = ({children, path, className, style}) => {
     const router = useRouter()
 
     return (
-        <li className={`mx-3 hidden md:inline ${router.pathname === path && "text-red"}`}><Link href={path}><a>{children}</a></Link></li>
+        <Link href={path}><a>
+        <li className={`mx-3 block md:inline ${router.pathname === path && "text-red"} ${className}`} style={style}>{children}</li></a></Link>
     )
 }
 

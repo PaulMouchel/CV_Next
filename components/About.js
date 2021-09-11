@@ -8,10 +8,10 @@ const About = () => {
     return (
         <Section className="flex-col" id="about">
             <Title>A propos de moi</Title>
-            <P className="max-w-lg">Si vous voulez en savoir un peu plus sur qui je suis, mes centres d'interets, mes hobbies.</P>
+            <P className="max-w-lg">Si vous voulez en savoir un peu plus sur qui je suis, mes centres d'intérêts, mes hobbies.</P>
             <Button>
                 <Link href="/about">
-                    <a>Envie d'en savoir plus ?</a>
+                    <a>En savoir plus ?</a>
                 </Link>
             </Button>
         </Section>

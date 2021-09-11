@@ -8,10 +8,10 @@ const WorkHistory = () => {
     return (
         <Section className="flex-col" id="work">
             <Title>Mon travail</Title>
-            <P className="max-w-lg">Ici je parle de mon parcours et des différents projets que j'ai réaliser, et des partenaires avec qui j'ai collaboré.</P>
+            <P className="max-w-lg">Ici je parle de mon parcours, des différents projets que j'ai réalisé, et des partenaires avec qui j'ai collaboré.</P>
             <Button>
                 <Link href="/work">
-                    <a>Jetter un oeil</a>
+                    <a>Jeter un œil</a>
                 </Link>
             </Button>
         </Section>
