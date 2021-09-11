@@ -10,6 +10,9 @@ const about = () => {
 
         <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
             <div className="text-white">En construction</div>
+            {/* <div className="text-white">Hobbies et passion</div>
+            <div className="text-white">Voyage</div>
+            <div className="text-white">Pourquoi la réunion ?</div> */}
         </main>
 
         </div>
