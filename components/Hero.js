@@ -4,19 +4,13 @@ import Section from './Section'
 import Title from './Title'
 import P from './P'
 import { motion } from 'framer-motion'
-import { useScrollYPosition } from 'react-use-scroll-position';
-import useWindowDimensions from '../hooks/useWindowsDimentions'
+import useWindowDimensions from '../hooks/useWindowDimention'
 
 const Hero = () => {
-    const scrollY = useScrollYPosition();
     const { height, width } = useWindowDimensions();
-
+    
     const scrollToWork = () => {
         window.scrollTo(0,height)
-    }
-
-    const getOpacity = () => {
-        return 1 - (scrollY/height)
     }
 
     return (
@@ -41,7 +35,7 @@ const Hero = () => {
             transition={{ ease: "linear", duration: 1, repeat: Infinity }} 
             className="absolute bottom-8 text-orange text-4xl">
                 <a onClick={scrollToWork}>
-                    <CgArrowDownR style={{opacity: getOpacity()}}/>
+                    <CgArrowDownR/>
                 </a>
             </motion.div>
         </Section>
