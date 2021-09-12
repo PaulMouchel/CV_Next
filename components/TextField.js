@@ -1,6 +1,7 @@
 const TextField = (props) => {
     return (
         <textarea {...props}
+        ref={props.reference}
         type="text" 
         name="message" 
         className="

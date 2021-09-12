@@ -23,7 +23,8 @@ const colorsVariant = {
 
 const bgVariant = {
     stop: {opacity: 0, transition:{duration:0.7}},
-    rotate: {opacity: 0.9, transition:{duration:0.7}}
+    rotate: {opacity: 0.9, transition:{duration:0.7}},
+    exit: {opacity: 0, transition:{duration:0.7}}
 }
 
     return (
@@ -53,6 +54,7 @@ const bgVariant = {
                     onClick={handleClick}
                     initial="stop"
                     animate="rotate"
+                    exit="exit"
                     variants={bgVariant}
                     className="h-screen w-screen fixed bg-gray-900 z-40"
                     />

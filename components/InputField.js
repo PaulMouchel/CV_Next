@@ -1,6 +1,7 @@
 const InputField = (props) => {
     return (
-        <input {...props}
+        <input {...props}   
+        ref={props.reference}
         type="text" 
         className="
         bg-gray-800
@@ -16,7 +17,6 @@ const InputField = (props) => {
         my-2 
         outline-none
         font-mono" 
-        autoComplete="off" 
         required/>
     )
 }
