@@ -4,8 +4,17 @@ import Section from './Section'
 import Title from './Title'
 import P from './P'
 import { motion } from 'framer-motion'
+import { useScrollYPosition } from 'react-use-scroll-position';
+import useWindowDimensions from '../hooks/useWindowsDimentions'
 
 const Hero = () => {
+    const scrollY = useScrollYPosition();
+    const { height, width } = useWindowDimensions();
+
+    const scrollToWork = () => {
+        window.scrollTo(0,height)
+    }
+
     return (
         <Section className="gap-4 md:gap-12 flex-col-reverse md:flex-row pb-12 md:pb-0 pt-4 md:pt-0">
             <div className="max-w-2xl text-left">
@@ -27,8 +36,8 @@ const Hero = () => {
             animate={{ y: [0, -10, 0] }}
             transition={{ ease: "linear", duration: 1, repeat: Infinity }} 
             className="absolute bottom-8 text-orange text-4xl">
-                <a href="#work">
-                    <CgArrowDownR/>
+                <a onClick={scrollToWork}>
+                    <CgArrowDownR style={{opacity: 1 - (scrollY/height)}}/>
                 </a>
             </motion.div>
         </Section>
