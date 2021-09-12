@@ -81,7 +81,7 @@ const Contact = () => {
                     <InputField placeholder="Mail" name="mail" reference={emailRef} autoComplete="off" />
                     <TextField placeholder="Ecrivez votre message" name="message" reference={messageRef} autoComplete="off"/>
                     <Button className="self-end" type="submit" value="Send">
-                    Envoyer
+                        Envoyer
                     </Button>
                 </form>
             </div>
