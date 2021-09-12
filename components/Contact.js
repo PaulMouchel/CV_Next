@@ -17,7 +17,6 @@ const Contact = () => {
     const messageRef = useRef()
 
     useEffect(() => {
-        console.log("update")
         if (error || success) {
             setTimeout(() => { setError(null), setSuccess(null)}, 5000);
         }
