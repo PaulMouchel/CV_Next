@@ -74,5 +74,10 @@ export const skills = [
         name:"contentful",
         height:30,
         width:136
+    },
+    {
+        name:"sass",
+        height:40,
+        width:58
     }
 ]
