@@ -79,5 +79,25 @@ export const skills = [
         name:"sass",
         height:40,
         width:58
+    },
+    {
+        name:"typescript",
+        height:40,
+        width:40
+    },
+    {
+        name:"material-ui",
+        height:40,
+        width:153
+    },
+    {
+        name:"prisma",
+        height:40,
+        width:99
+    },
+    {
+        name:"mysql",
+        height:40,
+        width:78
     }
 ]
