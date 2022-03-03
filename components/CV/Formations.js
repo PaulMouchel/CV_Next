@@ -3,6 +3,11 @@ import Formation from "./Formation";
 
 const formations = [
     {
+        date:"Novembre 2021 à Février 2022",
+        title:"Parcours Développeur Web OpenClassRooms",
+        description:" Parcours diplomant OpenClassRooms"
+    },
+    {
         date:"2019 à 2021",
         title:"Auto-formation aux technologies du web",
         description:" Via Youtube, Udemy, blogs"
