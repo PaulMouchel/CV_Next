@@ -22,7 +22,6 @@ export async function getStaticProps() {
 
 const work = ({ projects }) => {
 
-    console.log(projects)
     return (
         <motion.div 
         initial={{ opacity: 0 }}
@@ -39,13 +38,13 @@ const work = ({ projects }) => {
             <h1 className="text-white text-center text-4xl my-12">Travaux récents</h1>
             <div className='grid grid-cols-3 gap-12 max-w-[1200px] m-auto'>
                 { projects.map((project, index) => 
-                    <ProjectCard/>
+                    <ProjectCard key={index} project={project} />
                 )}
+                {/* <ProjectCard/>
                 <ProjectCard/>
                 <ProjectCard/>
                 <ProjectCard/>
-                <ProjectCard/>
-                <ProjectCard/>
+                <ProjectCard/> */}
                 
             </div>
             

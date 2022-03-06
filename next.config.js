@@ -5,4 +5,7 @@ module.exports = {
       EMAILJS_TEMPLATE_ID:"template_dnbgjgy",
       EMAILJS_ACCESS_TOKEN:"323d90748cfaa228224896b2577cbb06"
     },
+    images: {
+      domains: ['images.ctfassets.net'],
+    },
   }
