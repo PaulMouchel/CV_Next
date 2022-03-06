@@ -1,11 +1,33 @@
 import { createClient } from 'contentful'
 import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { BLOCKS } from "@contentful/rich-text-types";
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOCKEN,
 })
+
+const dtrOptions = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: (node) => (
+        node.data?.target?.fields?.file?.details?.image?.width === 21 && node.data?.target?.fields?.file?.details?.image?.height === 21 ?
+        <div className='flex items-center gap-2'>
+            <img
+            src={node.data?.target?.fields?.file?.url}
+            alt={node.data?.target?.fields?.title}
+            className="my-0"
+            />
+            <span>{node.data?.target?.fields?.title}</span>
+        </div>
+        :
+        <img
+          src={node.data?.target?.fields?.file?.url}
+          alt={node.data?.target?.fields?.title}
+        />
+      ),
+    },
+  };
 
 export const getStaticPaths = async () => {
     const res = await client.getEntries({ 
@@ -52,7 +74,7 @@ const Project = ({ project }) => {
 
     const {thumbnail, content} = project.fields
     // const formatedDate = useFormatedDate(date)
-
+console.log(content)
     return (
         <main>
             <div className="py-20 max-w-[900px] m-auto">
@@ -65,7 +87,7 @@ const Project = ({ project }) => {
                         />
                     </div>
                     <div className="prose prose-invert">
-                        {documentToReactComponents(content)}
+                        {documentToReactComponents(content, dtrOptions)}
                     </div>
                 </div>
             </div>
