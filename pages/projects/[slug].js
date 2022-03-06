@@ -1,7 +1,6 @@
 import { createClient } from 'contentful'
 import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import ArticleContent from '../../components/ArticleContent'
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -49,23 +48,25 @@ export const getStaticProps = async ({ params }) => {
 const Project = ({ project }) => {
     // if(!project) return <SkeletonNewsArticle/>
 
-    const {title, thumbnail, content} = project.fields
+    const {thumbnail, content} = project.fields
     // const formatedDate = useFormatedDate(date)
 
     return (
-        <main className="py-32 max-w-[1200px] m-auto">
-            <div className='w-full'>
-                {title}
-                <div className="h-72 relative rounded-lg overflow-hidden">
-                    <Image 
-                    src={"https:" + thumbnail.fields.file.url}
-                    layout="fill"
-                    objectFit="cover"
-                    />
+        <main>
+            <div className="py-20 max-w-[900px] m-auto">
+                <div className='w-full'>
+                    <div className="h-72 relative rounded-lg overflow-hidden mb-16">
+                        <Image 
+                        src={"https:" + thumbnail.fields.file.url}
+                        layout="fill"
+                        objectFit="cover"
+                        />
+                    </div>
+                    <div className="prose prose-invert">
+                        {documentToReactComponents(content)}
+                    </div>
                 </div>
-                <ArticleContent content={content} />
             </div>
-            
         </main>
     )
 }
