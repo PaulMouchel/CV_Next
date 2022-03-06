@@ -48,6 +48,8 @@ export const getStaticProps = async ({ params }) => {
 const Project = ({ project }) => {
     // if(!project) return <SkeletonNewsArticle/>
 
+    if (!project) return <p>Loading...</p>
+
     const {thumbnail, content} = project.fields
     // const formatedDate = useFormatedDate(date)
 
