@@ -1,7 +1,28 @@
 import Head from 'next/head'
 import { motion } from 'framer-motion'
+import { createClient } from 'contentful'
+import Image from 'next/image'
+import ProjectCard from '../components/ProjectCard'
 
-const work = () => {
+export async function getStaticProps() {
+    const client = createClient({
+        space: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOCKEN
+    })
+  
+    const projects = await client.getEntries({ content_type:'project'})
+  
+    return {
+        props: {
+            projects: projects.items.sort((a, b) => new Date(b.fields.date) - new Date(a.fields.date))
+        },
+        revalidate: 1
+    }
+}
+
+const work = ({ projects }) => {
+
+    console.log(projects)
     return (
         <motion.div 
         initial={{ opacity: 0 }}
@@ -14,9 +35,20 @@ const work = () => {
         </Head>
 
 
-        <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-            <div className="text-white">En construction</div>
-
+        <main className="py-32">
+            <h1 className="text-white text-center text-4xl my-12">Travaux récents</h1>
+            <div className='grid grid-cols-3 gap-12 max-w-[1200px] m-auto'>
+                { projects.map((project, index) => 
+                    <ProjectCard/>
+                )}
+                <ProjectCard/>
+                <ProjectCard/>
+                <ProjectCard/>
+                <ProjectCard/>
+                <ProjectCard/>
+                
+            </div>
+            
             {/* <div className="text-white">Apprentissage</div>
             <div className="text-white">C DUT</div>
             <div className="text-white">C# LP</div>
