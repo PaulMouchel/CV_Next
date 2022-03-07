@@ -19,7 +19,6 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col items-center justify-center w-full px-4 text-center">
-        
         <Hero/>
         <WorkHistory/>
         <Stack/>

@@ -4,17 +4,17 @@ import Section from './Section'
 import Title from './Title'
 import P from './P'
 import { motion } from 'framer-motion'
-import useWindowDimensions from '../hooks/useWindowDimention'
 
 const Hero = () => {
-    const { height } = useWindowDimensions();
-    
+
     const scrollToWork = () => {
-        window.scrollTo(0,height)
+        const workSection = document.getElementById('work')
+        const top = workSection.offsetTop
+        window.scrollTo({ top })
     }
 
     return (
-        <Section className="gap-4 md:gap-12 flex-col-reverse md:flex-row pb-12 md:pb-0 pt-4 md:pt-0">
+        <Section className="gap-4 md:gap-12 flex-col-reverse md:flex-row pb-12 md:pb-0 pt-4 md:pt-0 relative">
             <div className="max-w-2xl text-left">
                 <Title>Hello !</Title>
                 <Title>Moi c'est Paul.</Title>
