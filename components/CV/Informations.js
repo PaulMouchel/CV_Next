@@ -10,16 +10,10 @@ const Informations = () => {
     const day = today.getDate() - birthdate.getDate()
 
     const getAge = () => {
-        if (month > 0) {
+        if (month > 0 || (month === 0 && day >= 0)) {
             return years
-        } else if (month < 0) {
-            return years - 1
         } else {
-            if (day >= 0) {
-                return years
-            } else {
-                return years - 1
-            }
+            return years - 1
         }
     }
 
