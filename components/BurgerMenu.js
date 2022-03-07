@@ -13,7 +13,8 @@ const portrait = height >= width
 
 const widthWithPadding = width - 32
 const heightWithPadding = height - 32
-const menuWidthOpen = portrait ? widthWithPadding : heightWithPadding
+let menuWidthOpen = portrait ? widthWithPadding : heightWithPadding
+menuWidthOpen = menuWidthOpen > 400 ? 400 : menuWidthOpen
 
 const handleClick = () => {
     setMenuOpen(!menuOpen)
