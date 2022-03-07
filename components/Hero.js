@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import useWindowDimensions from '../hooks/useWindowDimention'
 
 const Hero = () => {
-    const { height, width } = useWindowDimensions();
+    const { height } = useWindowDimensions();
     
     const scrollToWork = () => {
         window.scrollTo(0,height)

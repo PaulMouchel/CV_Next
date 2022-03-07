@@ -2,18 +2,26 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { colors } from '../data/colors'
 import BurgerMenuPart from './BurgerMenuPart';
+import useWindowDimensions from '../hooks/useWindowDimention'
 
 const BurgerMenu = () => {
 
 const [menuOpen, setMenuOpen] = useState(false)
+const { height, width } = useWindowDimensions()
+
+const portrait = height >= width
+
+const widthWithPadding = width - 32
+const heightWithPadding = height - 32
+const menuWidthOpen = portrait ? widthWithPadding : heightWithPadding
 
 const handleClick = () => {
     setMenuOpen(!menuOpen)
 }
 
 const menuVariant = {
-    stop: {width: "15%", paddingTop:"15%", rotate: 0, borderRadius:"100%", transition:{duration:0.5}},
-    rotate: {width: ["15%", "15%", "100%"], paddingTop:["15%", "15%", "100%"], rotate: [0, 90, 90], borderRadius:["100%", "100%", "10%"], transition:{duration:0.5}}
+    stop: {width: 52, paddingTop:52, rotate: 0, borderRadius:"100%", transition:{duration:0.5}},
+    rotate: {width: [52, 52, menuWidthOpen], paddingTop:[52, 52, menuWidthOpen], rotate: [0, 90, 90], borderRadius:["100%", "100%", "10%"], transition:{duration:0.5}}
 }
 
 const colorsVariant = {
@@ -30,10 +38,9 @@ const bgVariant = {
     return (
         <>
             <nav className="fixed md:hidden top-0 text-green font-bold w-full h-20 px-4 z-50">
-                <div className="py-4">
+                <div className="py-4" style={{width: menuWidthOpen}}>
                     <motion.div 
                     className={`relative overflow-hidden`}
-                    style={{width:"15%", paddingTop:"15%", borderRadius:"100%"}}
                     initial="stop"
                     animate={menuOpen ? "rotate" : "stop"}
                     variants={menuVariant}

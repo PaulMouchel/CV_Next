@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import WorkHistory from '../components/WorkHistory'
 import Stack from '../components/Stack'
@@ -19,7 +18,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <Navbar activeTab={"home"}/> */}
       <main className="flex flex-col items-center justify-center w-full px-4 text-center">
         
         <Hero/>
