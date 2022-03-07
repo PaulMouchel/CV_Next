@@ -77,7 +77,7 @@ const Project = ({ project }) => {
     // const formatedDate = useFormatedDate(date)
 console.log(content)
     return (
-        <main>
+        <main className=''>
             <div className="py-20 max-w-[900px] m-auto">
                 <div className='w-full'>
                     <div className="h-72 relative rounded-lg overflow-hidden mb-16">
@@ -87,7 +87,7 @@ console.log(content)
                         objectFit="cover"
                         />
                     </div>
-                    <div className="prose prose-invert m-auto">
+                    <div className="prose prose-invert m-auto px-4">
                         {documentToReactComponents(content, dtrOptions)}
                     </div>
                     { productionLink &&

@@ -34,9 +34,9 @@ const work = ({ projects }) => {
         </Head>
 
 
-        <main className="py-32">
+        <main className="py-32 px-8 lg:px-12">
             <h1 className="text-white text-center text-4xl my-12">Travaux récents</h1>
-            <div className='grid grid-cols-3 gap-12 max-w-[1200px] m-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-[1200px] m-auto'>
                 { projects.map((project, index) => 
                     <ProjectCard key={index} project={project} />
                 )}
