@@ -2,6 +2,7 @@ import { createClient } from 'contentful'
 import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS } from "@contentful/rich-text-types";
+import Button from '../../components/Button'
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -12,11 +13,11 @@ const dtrOptions = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node) => (
         node.data?.target?.fields?.file?.details?.image?.width === 21 && node.data?.target?.fields?.file?.details?.image?.height === 21 ?
-        <div className='flex items-center gap-2'>
+        <div className='items-center bg-gray-50 inline-flex py-1 px-3 rounded-full text-gray-900 m-1'>
             <img
             src={node.data?.target?.fields?.file?.url}
             alt={node.data?.target?.fields?.title}
-            className="my-0"
+            className="my-0 mr-2"
             />
             <span>{node.data?.target?.fields?.title}</span>
         </div>
@@ -72,7 +73,7 @@ const Project = ({ project }) => {
 
     if (!project) return <p>Loading...</p>
 
-    const {thumbnail, content} = project.fields
+    const {thumbnail, content, productionLink} = project.fields
     // const formatedDate = useFormatedDate(date)
 console.log(content)
     return (
@@ -86,9 +87,16 @@ console.log(content)
                         objectFit="cover"
                         />
                     </div>
-                    <div className="prose prose-invert">
+                    <div className="prose prose-invert m-auto">
                         {documentToReactComponents(content, dtrOptions)}
                     </div>
+                    { productionLink &&
+                        <div className='text-center'>
+                            <a href={productionLink} target='_blank' >
+                                <Button >Visiter le site</Button>
+                            </a>
+                        </div>
+                    }
                 </div>
             </div>
         </main>
