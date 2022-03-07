@@ -69,13 +69,11 @@ export const getStaticProps = async ({ params }) => {
 }
 
 const Project = ({ project }) => {
-    // if(!project) return <SkeletonNewsArticle/>
 
     if (!project) return <p>Loading...</p>
 
     const {thumbnail, content, productionLink} = project.fields
-    // const formatedDate = useFormatedDate(date)
-console.log(content)
+
     return (
         <main className=''>
             <div className="py-20 max-w-[900px] m-auto">
