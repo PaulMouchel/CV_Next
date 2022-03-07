@@ -3,7 +3,7 @@ import { FaLinkedin, FaGithub, FaFilePdf } from 'react-icons/fa';
 
 const Header = () => {
     return (
-        <header className="px-2 md:px-32 lg:px-64 xl:px-96 pt-20 md:pt-4 flex flex-col md:flex-row justify-between">
+        <header className="px-4 pt-20 md:pt-4 flex flex-col md:flex-row print:flex-row justify-between">
             <div>
                 <h1 className="text-darkGreen text-5xl font-bold">PAUL MOUCHEL</h1>
                 <h2 className="text-darkGreen md:text-white text-xl font-bold">DEVELOPPEUR FULL STACK</h2>

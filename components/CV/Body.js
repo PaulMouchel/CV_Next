@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
 
 const Body = () => {
     return (
-        <main className="mx-2 md:mx-32 lg:mx-64 xl:mx-96 grid grid-cols-1 md:grid-cols-3 gap-12 xl:gap-18">
+        <main className="px-4 grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-12 print:gap-4 xl:gap-18 bg-gray-50">
             <motion.div
             initial={{y:"10vh", opacity:0}}
             animate={{y:0, opacity:1
@@ -17,8 +17,7 @@ const Body = () => {
             transition={{duration:0.5, delay: 0.2}}>
                 <About/>
                 <Languages/>
-                <Assets/>
-                <Hobbies/>
+                <Skills/>
             </motion.div>
             <motion.div
             initial={{y:"10vh", opacity:0}}
@@ -26,13 +25,14 @@ const Body = () => {
             }}
             transition={{duration:0.5, delay: 0.4}}>
                 <Experiences/>
+                <Hobbies/>
             </motion.div>
             <motion.div
             initial={{y:"10vh", opacity:0}}
             animate={{y:0, opacity:1
             }}
             transition={{duration:0.5, delay: 0.6}}>
-                <Skills/>
+                <Assets/>
                 <Formations/>
             </motion.div>
             

@@ -18,11 +18,11 @@ const Hobbies = () => {
             <SectionTitle>HOBBIES</SectionTitle>
             <div className="px-6">
                 {hobbies.map((hobbie, index) =>  
-                <div key={index} className="inline m-2">
+                <div key={index} className="inline-block m-2 relative p-5 print:p-4">
                     <Image
                         src={`/images/${hobbie}.jpg`}
-                        height={50} 
-                        width={50} 
+                        layout='fill'
+                        objectFit='contain'
                         alt={hobbie}
                     />
                 </div>

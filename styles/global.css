@@ -4,6 +4,17 @@ html {
     scroll-behavior: smooth;
 }
 
+@media print {
+    html{
+      font-size: 80%;
+      -webkit-print-color-adjust: exact; 
+    }
+    @page {
+        size: auto;
+        margin: 0;
+    }
+}
+
 header {
     background-image: linear-gradient(to bottom right, #F4C82D 50%, white 50%);
 }

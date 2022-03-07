@@ -38,7 +38,7 @@ const bgVariant = {
 
     return (
         <>
-            <nav className="fixed md:hidden top-0 text-green font-bold w-full h-20 px-4 z-50">
+            <nav className="fixed md:hidden top-0 text-green font-bold w-full h-20 px-4 z-50 print:hidden">
                 <div className="py-4" style={{width: menuWidthOpen}}>
                     <motion.div 
                     className={`relative overflow-hidden`}
