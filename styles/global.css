@@ -32,6 +32,43 @@ h1, h3, h4 {
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ;
 }
 
+.tv-top {
+    border-radius: 50% 50% 0% 0%;
+    transform: translateY(1.6rem);
+}
+
+.tv-bottom {
+    border-radius: 0% 0% 50% 50%;
+    transform: translateY(-1.6rem);
+}
+
+.tv-left {
+    border-radius: 50% 0% 0% 50%;
+    transform: translateX(1.3rem) scaleY(1.01);
+}
+
+.tv-right {
+    border-radius: 0% 50% 50% 0%;
+    transform: translateX(-1.3rem) scaleY(1.01);
+}
+
+@media (min-width: 420px) {
+    .tv-top {
+        transform: translateY(1.5rem);
+    }
+    
+    .tv-bottom {
+        transform: translateY(-1.5rem);
+    }
+
+    .tv-left {
+        transform: translateX(1.4rem) scaleY(1.02);
+    }
+    
+    .tv-right {
+        transform: translateX(-1.4rem) scaleY(1.02);
+    }
+}
   
 .btn:hover .btn__slide {
     width: calc(100% + 15px);
