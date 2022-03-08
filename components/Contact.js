@@ -22,7 +22,20 @@ const Contact = () => {
         }
     }, [error, success])
 
+    const isValidName = (value) => {
+        return value.length >= 3 && value.length < 100
+    }
+
+    const isValidEmail = (value) => {
+        return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)
+    }
+
+    const isValidMessage = (value) => {
+        return value.length >= 10
+    }
+
     const sendEmail = (e) => {
+        setError(null)
         e.preventDefault();
         let emailData = {
           surname:surnameRef.current.value, 
@@ -30,6 +43,27 @@ const Contact = () => {
           email:emailRef.current.value, 
           message:messageRef.current.value
         }
+
+        if (!isValidName(emailData.surname)) {
+            setError("Le prénom doit contenir entre 3 et 99 caractères")
+            return
+        }
+
+        if (!isValidName(emailData.name)) {
+            setError("Le nom doit contenir entre 3 et 99 caractères")
+            return
+        }
+
+        if (!isValidEmail(emailData.email)) {
+            setError("L'adresse email n'est pas valide")
+            return
+        }
+
+        if (!isValidMessage(emailData.message)) {
+            setError("Votre message doit contenir au moins 10 caractères")
+            return
+        }
+
 
         if(emailData.surname && emailData.name && emailData.email && emailData.message) {
             emailjs.send(
@@ -41,12 +75,12 @@ const Contact = () => {
             .then((result) => {
                 console.log(result.text);
                 setSuccess("Message envoyé avec succès !")
+                e.target.reset()
             }, (error) => {
                 console.log(error.text);
                 setError("Echec de l'envoi du message : " + error.text)
             });
-            }
-          e.target.reset()
+        }
       }
 
       const infoVariant = {
