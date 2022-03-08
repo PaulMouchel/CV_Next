@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import Section from "./Section";
 import Title from "./Title";
 import P from "./P";
@@ -6,12 +6,10 @@ import Button from "./Button";
 import InputField from "./InputField";
 import TextField from "./TextField";
 import emailjs from 'emailjs-com';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
-    const [success, setSuccess] = useState(null)
     const surnameRef = useRef()
     const nameRef = useRef()
     const emailRef = useRef()
@@ -90,13 +88,7 @@ const Contact = () => {
                 }
             )
         }
-      }
-
-      const infoVariant = {
-          stop:{y:-100},
-          go:{y:-0},
-          exit:{y:-100}
-      }
+    }
 
     return (
         <Section className={`flex-col`} id="contact">
