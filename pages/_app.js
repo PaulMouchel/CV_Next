@@ -1,11 +1,10 @@
 import 'tailwindcss/tailwind.css'
 import '../styles/global.css'
 import Layout from '../components/Layout';
-import{ init } from 'emailjs-com';
+import { init } from 'emailjs-com';
 import { AnimateSharedLayout } from "framer-motion";
 
-init(process.env.REACT_APP_EMAILJS_USER_ID);
-
+init(process.env.NEXT_PUBLIC_EMAILJS_USER_ID);
 
 function MyApp({ Component, pageProps }) {
   return (
