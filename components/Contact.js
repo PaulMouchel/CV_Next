@@ -30,9 +30,9 @@ const Contact = () => {
     const sendEmail = (e) => {
         e.preventDefault();
         let emailData = {
-          surname:surnameRef.current.value, 
-          name:nameRef.current.value, 
-          email:emailRef.current.value, 
+          surname:surnameRef.current.value.trim(), 
+          name:nameRef.current.value.trim(), 
+          email:emailRef.current.value.trim(), 
           message:messageRef.current.value
         }
 
