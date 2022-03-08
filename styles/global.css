@@ -74,4 +74,11 @@ h1, h3, h4 {
     width: calc(100% + 15px);
 }
   
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #1f2937 inset !important;
+    -webkit-text-fill-color: #f9fafb !important;
+}
 

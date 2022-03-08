@@ -16,7 +16,8 @@ const InputField = (props) => {
         p-2 
         my-2 
         outline-none
-        font-mono" 
+        font-mono
+        " 
         required/>
     )
 }

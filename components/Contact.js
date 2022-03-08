@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState } from 'react'
 import Section from "./Section";
 import Title from "./Title";
 import P from "./P";
@@ -7,35 +7,29 @@ import InputField from "./InputField";
 import TextField from "./TextField";
 import emailjs from 'emailjs-com';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
-    const [error, setError] = useState(null)
     const [success, setSuccess] = useState(null)
     const surnameRef = useRef()
     const nameRef = useRef()
     const emailRef = useRef()
     const messageRef = useRef()
 
-    useEffect(() => {
-        if (error || success) {
-            setTimeout(() => { setError(null), setSuccess(null)}, 5000);
-        }
-    }, [error, success])
-
-    const isValidName = (value) => {
-        return value.length >= 3 && value.length < 100
-    }
-
-    const isValidEmail = (value) => {
-        return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)
-    }
-
-    const isValidMessage = (value) => {
-        return value.length >= 10
+    const sendToastError = (text) => {
+        toast.error(text, {
+            position: "bottom-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
     }
 
     const sendEmail = (e) => {
-        setError(null)
         e.preventDefault();
         let emailData = {
           surname:surnameRef.current.value, 
@@ -44,42 +38,57 @@ const Contact = () => {
           message:messageRef.current.value
         }
 
+        const isValidName = (value) => {
+            return value.length >= 3 && value.length < 100
+        }
+    
+        const isValidEmail = (value) => {
+            return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)
+        }
+    
+        const isValidMessage = (value) => {
+            return value.length >= 10
+        }
+
         if (!isValidName(emailData.surname)) {
-            setError("Le prénom doit contenir entre 3 et 99 caractères")
+            sendToastError("Le prénom doit contenir entre 3 et 99 caractères")
             return
         }
 
         if (!isValidName(emailData.name)) {
-            setError("Le nom doit contenir entre 3 et 99 caractères")
+            sendToastError("Le nom doit contenir entre 3 et 99 caractères")
             return
         }
 
         if (!isValidEmail(emailData.email)) {
-            setError("L'adresse email n'est pas valide")
+            sendToastError("L'adresse email n'est pas valide")
             return
         }
 
         if (!isValidMessage(emailData.message)) {
-            setError("Votre message doit contenir au moins 10 caractères")
+            sendToastError("Votre message doit contenir au moins 10 caractères")
             return
         }
 
-
         if(emailData.surname && emailData.name && emailData.email && emailData.message) {
-            emailjs.send(
-            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, 
-            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, 
-            emailData, 
-            process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+            toast.promise(
+                emailjs.send(
+                    process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, 
+                    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, 
+                    emailData, 
+                    process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+                )
+                .then((result) => {
+                    console.log(result.text);
+                    e.target.reset()
+                }, (error) => {
+                    console.log(error.text);
+                }), {
+                    pending: "Envoi du message",
+                    success: "Message envoyé avec succès !",
+                    error: "Echec de l'envoi du message"
+                }
             )
-            .then((result) => {
-                console.log(result.text);
-                setSuccess("Message envoyé avec succès !")
-                e.target.reset()
-            }, (error) => {
-                console.log(error.text);
-                setError("Echec de l'envoi du message : " + error.text)
-            });
         }
       }
 
@@ -96,23 +105,20 @@ const Contact = () => {
             
             <div className="w-full mt-4">
                 <form onSubmit={sendEmail} className="w-full">
-                    <AnimatePresence>
-                        { error && 
-                            <motion.div initial="stop" animate="go" exit="exit" variants={infoVariant} className="fixed top-4 w-screen left-0 flex justify-center">
-                                <div className="max-w-xl w-full left-0 h-full border-2 border-red bg-gray-900 text-center text-red font-bold bg-green-500 flex items-center justify-center py-2 rounded">{error}</div>
-                            </motion.div>
-                        }
-                    </AnimatePresence>
-                    <AnimatePresence>
-                        { success && 
-                            <motion.div initial="stop" animate="go" exit="exit" variants={infoVariant} className="fixed top-4 w-screen left-0 flex justify-center">
-                                <div className="max-w-xl w-full left-0 h-full border-2 border-green bg-gray-900 text-center text-green font-bold bg-green-500 flex items-center justify-center py-2 rounded">{success}</div>
-                            </motion.div>
-                        }
-                    </AnimatePresence>
-                    <InputField placeholder="Nom" name="surname" reference={surnameRef} autoComplete="off"/>
-                    <InputField placeholder="Prenom" name="name" reference={nameRef} autoComplete="off"/>
-                    <InputField placeholder="Mail" name="mail" reference={emailRef} autoComplete="off" />
+                <ToastContainer
+                position="bottom-left"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                />
+                    <InputField placeholder="Nom" name="surname" reference={surnameRef} autoComplete="given-name"/>
+                    <InputField placeholder="Prenom" name="name" reference={nameRef} autoComplete="family-name"/>
+                    <InputField placeholder="email" name="mail" reference={emailRef} autoComplete="email" />
                     <TextField placeholder="Ecrivez votre message" name="message" reference={messageRef} autoComplete="off"/>
                     <Button className="self-end" type="submit" value="Send">
                         Envoyer
