@@ -14,7 +14,7 @@ const Hero = () => {
     }
 
     return (
-        <Section className="gap-4 md:gap-12 flex-col-reverse md:flex-row pb-12 md:pb-0 pt-4 md:pt-0 relative min-h-screen">
+        <Section className="gap-4 md:gap-12 flex-col-reverse md:flex-row pb-12 md:pb-0 pt-4 md:pt-0 relative" hScreen>
             <div className="max-w-2xl text-left">
                 <Title>Hello !</Title>
                 <Title>Moi c'est Paul.</Title>
