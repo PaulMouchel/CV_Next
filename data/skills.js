@@ -99,5 +99,15 @@ export const skills = [
         name:"mysql",
         height:40,
         width:78
+    },
+    {
+        name:"mongoDb",
+        height:40,
+        width:126
+    },
+    {
+        name:"Mongoose",
+        height:40,
+        width:181
     }
 ]
