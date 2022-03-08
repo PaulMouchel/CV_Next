@@ -39,13 +39,7 @@ const work = ({ projects }) => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-[1200px] m-auto'>
                 { projects.map((project, index) => 
                     <ProjectCard key={index} project={project} />
-                )}
-                {/* <ProjectCard/>
-                <ProjectCard/>
-                <ProjectCard/>
-                <ProjectCard/>
-                <ProjectCard/> */}
-                
+                )} 
             </div>
             
             {/* <div className="text-white">Apprentissage</div>
@@ -59,8 +53,6 @@ const work = ({ projects }) => {
 
             <div className="text-white">projets</div>
             <div className="text-white">TRY'P</div>
-            <div className="text-white">CSE</div>
-            <div className="text-white">EDIA</div>
             <div className="text-white">Portfolio</div> */}
         </main>
 
