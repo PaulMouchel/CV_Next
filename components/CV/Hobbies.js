@@ -20,7 +20,7 @@ const Hobbies = () => {
                 {hobbies.map((hobbie, index) =>  
                 <div key={index} className="inline-block m-2 relative p-5 print:p-4">
                     <Image
-                        src={`/images/${hobbie}.jpg`}
+                        src={`/images/hobbies/${hobbie}.png`}
                         layout='fill'
                         objectFit='contain'
                         alt={hobbie}
