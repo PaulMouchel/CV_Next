@@ -106,7 +106,7 @@ export const skills = [
         width:126
     },
     {
-        name:"Mongoose",
+        name:"mongoose",
         height:40,
         width:181
     }
